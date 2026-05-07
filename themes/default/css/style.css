@@ -1,0 +1,12 @@
+body { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; color: #333; background: #fafafa; }
+.btn-primary { background: var(--primary); border-color: var(--primary); }
+.btn-primary:hover { background: var(--primary); filter: brightness(0.9); border-color: var(--primary); }
+.text-primary, .nav-link.active { color: var(--primary) !important; }
+.product-card { border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: all .3s; background: #fff; }
+.product-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+.product-img { height: 220px; object-fit: cover; width: 100%; }
+.hero-banner { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff; padding: 80px 0; }
+.section-title { font-weight: 700; margin-bottom: 30px; }
+.cart-item { border-bottom: 1px solid #eee; padding: 15px 0; }
+.price-old { text-decoration: line-through; color: #999; }
+.badge-sale { background: #dc3545; color: #fff; }

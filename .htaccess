@@ -1,0 +1,11 @@
+# Redirect all root access to /public for security
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^$ public/ [L]
+    RewriteRule (.*) public/$1 [L]
+</IfModule>
+
+# Block direct access to all sensitive files
+<FilesMatch "\.(env|sql|md|log|json|lock|gitignore)$">
+    Require all denied
+</FilesMatch>

@@ -1,0 +1,47 @@
+/* True Commerce — production lockdown stylesheet.
+   Loaded only when APP_LOCKDOWN=true. Discourages copying, downloading,
+   and inspection. Inputs and contenteditable areas remain usable so users
+   can still type. */
+
+html, body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* Allow typing in form fields, search bars, contenteditable areas. */
+input, textarea, select, [contenteditable="true"], [contenteditable=""] {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    -webkit-touch-callout: default;
+}
+
+/* Block direct image saving via drag, plus a transparent overlay to
+   defeat right-click "Save image as…" via the OS context menu. */
+img, picture, video, canvas, svg {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    pointer-events: auto;
+}
+
+/* Hide content when devtools open (best-effort companion to lockdown.js). */
+body.lockdown-blocked > *:not(.lockdown-shield) { visibility: hidden; }
+.lockdown-shield {
+    position: fixed; inset: 0; z-index: 999999;
+    background: #1a1a2e; color: #fff;
+    display: none; align-items: center; justify-content: center;
+    text-align: center; padding: 2rem; font-family: system-ui, sans-serif;
+}
+body.lockdown-blocked .lockdown-shield { display: flex; }
+
+/* Print / save-as suppression. */
+@media print {
+    body { display: none !important; }
+}
